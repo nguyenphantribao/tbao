@@ -1,0 +1,51 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
+local window = library:Window("☄️ NGUYENPHANTRIBAO ☄️")
+
+-- Thay đổi màu Galaxy cho toàn bộ UI
+for _, obj in pairs(game.CoreGui:GetDescendants()) do
+    if obj:IsA("Frame") or obj:IsA("TextButton") or obj:IsA("TextLabel") then
+        obj.BackgroundColor3 = Color3.fromRGB(25, 0, 50)
+        if obj:IsA("TextLabel") or obj:IsA("TextButton") then
+            obj.TextColor3 = Color3.fromRGB(120, 180, 255)
+        end
+    end
+end
+
+-- Hàm hỗ trợ bấm phím
+local function useSkill(key)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, key, false, game)
+    wait(0.1)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, key, false, game)
+end
+
+-- Danh sách các script
+local scripts = {
+    {name = " Mở Console", action = function() useSkill("F9") end},
+    {name = " Copy CFrame", url = "https://raw.githubusercontent.com/meobeo8/SupportBuLon/main/CoppyCframe"},
+    {name = " Infinite Yield", url = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+    {name = " Fly", url = "https://raw.githubusercontent.com/TranVanBao1411/SupportBuLon/main/FlyBuLon"},
+    {name = " Dex", url = "https://raw.githubusercontent.com/realredz/DEX-Explorer/refs/heads/main/Mobile.lua"},
+    {name = " RemoteSpy", url = "https://raw.githubusercontent.com/realredz/SimpleSpy/refs/heads/main/Mobile.lua"},
+    {name = " RemoteSpy 1", action = function()
+        local owner, branch = "Upbolt", "revision"
+        local function webImport(file)
+            return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)))()
+        end
+        webImport("init")
+        webImport("ui/main")
+    end},
+}
+
+-- Tạo các nút từ bảng trên
+for _, script in pairs(scripts) do
+    window:Button(script.name, function()
+        if script.action then
+            script.action()
+        elseif script.url then
+            local success, err = pcall(function()
+                loadstring(game:HttpGet(script.url))()
+            end)
+            if not success then warn("Lỗi script:", err) end
+        end
+    end)
+end
