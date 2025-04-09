@@ -23,7 +23,7 @@ local scripts = {
     {name = " Mở Console", action = function() useSkill("F9") end},
     {name = " Copy CFrame", url = "https://raw.githubusercontent.com/meobeo8/SupportBuLon/main/CoppyCframe"},
     {name = " Infinite Yield", url = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
-    {name = " Fly", url = "https://raw.githubusercontent.com/TranVanBao1411/SupportBuLon/main/FlyBuLon"},
+    {name = " Fly", url = "https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"},
     {name = " Dex", url = "https://raw.githubusercontent.com/nuIIism/scripts/main/dex.lua"},
     {name = " RemoteSpy", url = "https://raw.githubusercontent.com/realredz/SimpleSpy/refs/heads/main/Mobile.lua"},
     {name = " RemoteSpy 1", action = function()
