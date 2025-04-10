@@ -1,0 +1,57 @@
+local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source.lua"))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Arise Crossover | TWVZ UI Clone",
+   LoadingTitle = "TWVZ UI | Loading...",
+   LoadingSubtitle = "by YourName",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "arise_twvz_ui", -- bạn có thể đổi tên
+      FileName = "config"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "", -- invite nếu bạn có server
+      RememberJoins = true
+   },
+   KeySystem = false,
+})
+
+-- Tạo tab chính
+local Tab_Infos = Window:CreateTab("📋 Infos", "rbxassetid://6034509993")
+local Tab_Main = Window:CreateTab("⚔️ Main", "rbxassetid://6035047409")
+local Tab_Dungeon = Window:CreateTab("🏰 Dungeon", "rbxassetid://6035037400")
+local Tab_Castle = Window:CreateTab("🏯 Castle", "rbxassetid://6035037400")
+local Tab_Rank = Window:CreateTab("🎖️ Rank", "rbxassetid://6035078886")
+local Tab_Raid = Window:CreateTab("🔥 Raid", "rbxassetid://6035067833")
+local Tab_Teleport = Window:CreateTab("🧭 Teleport", "rbxassetid://6035067633")
+local Tab_Sell = Window:CreateTab("💰 Sell", "rbxassetid://6035047409")
+local Tab_Mount = Window:CreateTab("🐎 Mount", "rbxassetid://6035037400")
+local Tab_Shop = Window:CreateTab("🛒 Shop", "rbxassetid://6035047397")
+local Tab_Exchange = Window:CreateTab("🔄 Exchange", "rbxassetid://6035047397")
+local Tab_Upgrader = Window:CreateTab("⚙️ Upgrader", "rbxassetid://6035047409")
+local Tab_Boosts = Window:CreateTab("⚡ Boosts", "rbxassetid://6035067833")
+local Tab_Experimental = Window:CreateTab("🧪 Experimental", "rbxassetid://6035067833")
+local Tab_Webhook = Window:CreateTab("🌐 Webhook", "rbxassetid://6035067833")
+local Tab_Settings = Window:CreateTab("⚙️ Settings", "rbxassetid://6034509993")
+
+-- Thêm phần bên trong tab Infos
+Tab_Infos:CreateParagraph({Title = "Support", Content = "Version 1.0.0 | Script by You\nAnti-AFK Enabled\nJoin Discord for support!"})
+
+-- Bạn có thể thêm các nút/bật tắt vào từng tab ví dụ:
+Tab_Main:CreateToggle({
+   Name = "Auto Attack",
+   CurrentValue = false,
+   Flag = "AutoAttack",
+   Callback = function(Value)
+       getgenv().AutoAttack = Value
+       -- xử lý logic tự động đánh tại đây
+   end,
+})
+
+Tab_Dungeon:CreateButton({
+   Name = "Start Dungeon",
+   Callback = function()
+       -- logic bắt đầu dungeon
+   end,
+})
